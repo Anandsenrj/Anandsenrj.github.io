@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Anand Sen | Developer Portfolio</title>
+  <meta name="description" content="Anand Sen — Full-Stack Developer & AI Engineer. Crafting intelligent, scalable digital experiences with modern web technologies." />
+  <meta property="og:title" content="Anand Sen | Developer Portfolio" />
+  <meta property="og:description" content="Full-Stack Developer & AI Engineer building intelligent digital experiences." />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Custom Cursor -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursorFollower"></div>
+
+  <!-- Noise Overlay -->
+  <div class="noise-overlay"></div>
+
+  <!-- Navigation -->
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#" class="nav-logo" id="nav-logo">
+        <span class="logo-text">AS</span>
+        <span class="logo-dot"></span>
+      </a>
+      <nav class="nav-links" id="nav-links">
+        <a href="#about"       class="nav-link">About</a>
+        <a href="#skills"      class="nav-link">Skills</a>
+        <a href="#projects"    class="nav-link">Projects</a>
+        <a href="#experience"  class="nav-link">Experience</a>
+        <a href="#contact"     class="nav-link">Contact</a>
+      </nav>
+      <div class="nav-actions">
+        <!-- Theme Toggle -->
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme" title="Toggle light/dark mode">
+          <span class="theme-icon theme-icon-dark">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 12.79A9 9 0 1111.21 3a7 7 0 009.79 9.79z" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+          <span class="theme-icon theme-icon-light">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+              <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+            </svg>
+          </span>
+          <span class="toggle-track"></span>
+        </button>
+        <a href="https://linkedin.com/in/Anandsenrj" target="_blank" class="nav-btn btn-secondary">LinkedIn</a>
+        <a href="https://github.com/Anandsenrj"     target="_blank" class="nav-btn btn-primary">GitHub</a>
+      </div>
+      <div class="nav-right-mobile">
+        <button class="theme-toggle theme-toggle-mobile" id="themeToggleMobile" aria-label="Toggle theme">
+          <span class="theme-icon theme-icon-dark">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 12.79A9 9 0 1111.21 3a7 7 0 009.79 9.79z" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+          <span class="theme-icon theme-icon-light">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+              <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+            </svg>
+          </span>
+        </button>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#about"      class="mobile-link">About</a>
+    <a href="#skills"     class="mobile-link">Skills</a>
+    <a href="#projects"   class="mobile-link">Projects</a>
+    <a href="#experience" class="mobile-link">Experience</a>
+    <a href="#contact"    class="mobile-link">Contact</a>
+    <div class="mobile-social">
+      <a href="https://github.com/Anandsenrj"            target="_blank" class="mobile-social-btn" aria-label="GitHub">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+      </a>
+      <a href="https://linkedin.com/in/Anandsenrj"       target="_blank" class="mobile-social-btn" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      </a>
+      <a href="https://instagram.com/patientstranze"     target="_blank" class="mobile-social-btn" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- Theme Transition Overlay -->
+  <div class="theme-flash" id="themeFlash"></div>
+
+  <main>
+    <!-- ═══════════════════════════════ HERO ═══════════════════════════════ -->
+    <section class="hero" id="hero">
+      <div class="hero-bg-grid"></div>
+      <div class="hero-orbs">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+      </div>
+      <div class="hero-content">
+        <div class="hero-badge" id="hero-badge">
+          <span class="badge-dot"></span>
+          <span>Open to opportunities &amp; collaborations</span>
+        </div>
+        <h1 class="hero-title">
+          <span class="title-line">Building</span>
+          <span class="title-line title-italic">intelligent</span>
+          <span class="title-line">digital worlds.</span>
+        </h1>
+        <p class="hero-sub">
+          I'm <strong>Anand Sen</strong> — Full-Stack Developer &amp; AI Engineer.<br />
+          Turning complex problems into elegant, scalable solutions.
+        </p>
+        <div class="hero-ctas">
+          <a href="#projects" class="cta-primary" id="hero-cta-projects">View My Work</a>
+          <a href="#contact"  class="cta-secondary" id="hero-cta-contact">
+            <span>Get in Touch</span>
+            <svg viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat">
+            <span class="stat-num" id="stat-repos">—</span>
+            <span class="stat-label">Repositories</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat">
+            <span class="stat-num">6+</span>
+            <span class="stat-label">Projects Built</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat">
+            <span class="stat-num">2+</span>
+            <span class="stat-label">Years Coding</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-scroll-indicator">
+        <span>Scroll to explore</span>
+        <div class="scroll-line"></div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════ ABOUT ═══════════════════════════════ -->
+    <section class="about section" id="about">
+      <div class="container">
+        <div class="section-label">Who I Am</div>
+        <div class="about-grid">
+          <div class="about-left reveal">
+            <h2 class="section-title">Developer. Builder.<br /><em>Problem Solver.</em></h2>
+            <p class="about-text">
+              I'm <strong>Anand Sen</strong>, a passionate Full-Stack Developer &amp; AI enthusiast with hands-on experience building real-world applications — from AI-powered healthcare systems to decentralized dashboards and IoT monitoring platforms.
+            </p>
+            <p class="about-text">
+              Currently pursuing my B.Tech, I've built across the full stack — React, Node.js, Python, C++ — and love experimenting at the intersection of <strong>AI, web, and IoT</strong>. I thrive in hackathons, open-source contributions, and building products people actually use.
+            </p>
+            <p class="about-text">
+              Beyond code, I'm the kind of developer who reads documentation for fun, obsesses over clean UX, and believes every project is an opportunity to learn something new.
+            </p>
+            <div class="about-links">
+              <a href="https://github.com/Anandsenrj" target="_blank" class="about-link" id="about-github-link">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+                <span>@Anandsenrj</span>
+              </a>
+              <a href="https://linkedin.com/in/Anandsenrj" target="_blank" class="about-link" id="about-linkedin-link">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                <span>Anandsenrj</span>
+              </a>
+              <a href="https://instagram.com/patientstranze" target="_blank" class="about-link" id="about-instagram-link">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                <span>@patientstranze</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="about-right reveal reveal-delay-2">
+            <div class="about-avatar-container">
+              <img src="https://avatars.githubusercontent.com/u/84634909?v=4" alt="Anand Sen" class="about-avatar" />
+              <div class="avatar-ring"></div>
+              <div class="avatar-ring avatar-ring-2"></div>
+              <div class="avatar-status">
+                <span class="avatar-status-dot"></span>
+                <span>Open to work</span>
+              </div>
+            </div>
+            <div class="about-cards">
+              <div class="about-card reveal reveal-delay-1">
+                <div class="card-icon">⚡</div>
+                <div class="card-title">Fast Learner</div>
+                <div class="card-desc">Adapts quickly to new stacks</div>
+              </div>
+              <div class="about-card reveal reveal-delay-2">
+                <div class="card-icon">🤖</div>
+                <div class="card-title">AI-First</div>
+                <div class="card-desc">ML/AI in every solution</div>
+              </div>
+              <div class="about-card reveal reveal-delay-3">
+                <div class="card-icon">🏗️</div>
+                <div class="card-title">Full-Stack</div>
+                <div class="card-desc">End-to-end development</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════ SKILLS ═══════════════════════════════ -->
+    <section class="skills section" id="skills">
+      <div class="container">
+        <div class="section-label reveal">What I Use</div>
+        <h2 class="section-title reveal">Tech Stack &amp;<br /><em>Expertise</em></h2>
+        <div class="skills-cards-grid" id="skills-cards-grid">
+
+          <div class="skill-card reveal reveal-delay-1" data-skill="cpp">
+            <div class="skill-card-glow"></div>
+            <div class="skill-card-inner">
+              <div class="skill-card-icon">
+                <svg viewBox="0 0 32 32" fill="none"><text x="4" y="24" font-size="20" font-weight="bold" fill="currentColor">C++</text></svg>
+              </div>
+              <div class="skill-card-name">C++</div>
+              <div class="skill-card-level">
+                <div class="skill-bar"><div class="skill-bar-fill" style="--w:88%"></div></div>
+                <span>Advanced</span>
+              </div>
+              <div class="skill-card-tag">DSA · Competitive</div>
+            </div>
+          </div>
+
+          <div class="skill-card reveal reveal-delay-2" data-skill="python">
+            <div class="skill-card-glow"></div>
+            <div class="skill-card-inner">
+              <div class="skill-card-icon">
+                <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path d="M15.885.001c-7.268 0-6.817 3.153-6.817 3.153v3.265h6.935v.98H5.951S1.5 6.867 1.5 14.198c0 7.332 4.056 7.075 4.056 7.075h2.422v-3.407s-.13-4.056 3.99-4.056h6.878s3.857.062 3.857-3.729V3.822S23.268.001 15.885.001zm-3.837 2.212c.695 0 1.26.565 1.26 1.26 0 .695-.565 1.26-1.26 1.26-.695 0-1.26-.565-1.26-1.26 0-.695.565-1.26 1.26-1.26z" fill="#3776AB"/><path d="M16.115 31.999c7.268 0 6.817-3.153 6.817-3.153v-3.265h-6.935v-.98h10.052s4.451.532 4.451-6.799c0-7.332-4.056-7.075-4.056-7.075h-2.422v3.407s.13 4.056-3.99 4.056h-6.878s-3.857-.062-3.857 3.729v6.259s-.585 3.821 6.818 3.821zm3.837-2.212c-.695 0-1.26-.565-1.26-1.26 0-.695.565-1.26 1.26-1.26.695 0 1.26.565 1.26 1.26 0 .695-.565 1.26-1.26 1.26z" fill="#FFD43B"/></svg>
+              </div>
+              <div class="skill-card-name">Python</div>
+              <div class="skill-card-level">
+                <div class="skill-bar"><div class="skill-bar-fill" style="--w:85%"></div></div>
+                <span>Advanced</span>
+              </div>
+              <div class="skill-card-tag">AI/ML · Backend</div>
+            </div>
+          </div>
+
+          <div class="skill-card reveal reveal-delay-3" data-skill="java">
+            <div class="skill-card-glow"></div>
+            <div class="skill-card-inner">
+              <div class="skill-card-icon">
+                <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path d="M11.8 25.2s-1.2.7.87.93c2.52.29 3.81.25 6.59-.28 0 0 .73.46 1.75.86-6.22 2.67-14.1-.15-9.21-1.51zm-.76-3.47s-1.37 1.01.72 1.22c2.7.28 4.83.3 8.52-.41 0 0 .51.51 1.31.8-7.54 2.2-15.95.18-10.55-1.61zm13.7-9.14c1.54 1.77-.4 3.36-.4 3.36s3.9-2.02 2.11-4.54c-1.68-2.35-2.96-3.51 4-7.53 0 0-10.93 2.73-5.71 8.71z" fill="#E76F00"/><path d="M21.73 27.74s.9.74-.99 1.31c-3.58 1.08-14.93 1.41-18.09.04-1.13-.49.99-1.17 1.66-1.31.69-.15 1.09-.12 1.09-.12-1.26-.89-8.14 1.74-3.5 2.49 12.67 2.05 23.1-.92 19.83-2.41zM12.3 17.3s-5.79 1.38-2.05 1.88c1.58.21 4.73.16 7.66-.08 2.39-.2 4.8-.63 4.8-.63s-.84.36-1.45.78c-5.87 1.54-17.2.82-13.94-.75 2.76-1.34 4.98-1.2 4.98-1.2zm10.39 5.8c5.96-3.1 3.2-6.07 1.28-5.67-.47.1-.68.19-.68.19s.17-.27.5-.39c3.75-1.32 6.63 3.89-1.23 5.96 0 0 .09-.09.13-.09zm-9.08 8.39c5.72.37 14.5-.21 14.71-2.96 0 0-.4 1.03-4.72 1.84-4.89.92-10.92.81-14.49.22 0 0 .73.6 4.5.9z" fill="#E76F00"/></svg>
+              </div>
+              <div class="skill-card-name">Java</div>
+              <div class="skill-card-level">
+                <div class="skill-bar"><div class="skill-bar-fill" style="--w:75%"></div></div>
+                <span>Proficient</span>
+              </div>
+              <div class="skill-card-tag">OOP · Backend</div>
+            </div>
+          </div>
+
+          <div class="skill-card reveal reveal-delay-4" data-skill="js">
+            <div class="skill-card-glow"></div>
+            <div class="skill-card-inner">
+              <div class="skill-card-icon">
+                <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path fill="#F7DF1E" d="M0 0h32v32H0z"/><path d="M21.5 25.2c.5.8 1.1 1.4 2.2 1.4 1 0 1.6-.5 1.6-1.2 0-.8-.6-1.1-1.6-1.6l-.5-.2c-1.6-.7-2.7-1.6-2.7-3.4 0-1.7 1.3-3 3.3-3 1.4 0 2.5.5 3.2 1.8l-1.7 1.1c-.4-.7-.8-1-1.5-1-.7 0-1.1.4-1.1 1 0 .7.4 1 1.4 1.5l.5.2c1.9.8 3 1.7 3 3.6 0 2-1.6 3.2-3.7 3.2-2.1 0-3.4-1-4-2.4l1.6-.9zm-9.2.2c.4.7.7 1.3 1.5 1.3.8 0 1.2-.3 1.2-1.5v-8.1h2.1v8.1c0 2.5-1.5 3.6-3.6 3.6-1.9 0-3-1-3.6-2.2l1.4-.8v-.4z"/></svg>
+              </div>
+              <div class="skill-card-name">JavaScript</div>
+              <div class="skill-card-level">
+                <div class="skill-bar"><div class="skill-bar-fill" style="--w:90%"></div></div>
+                <span>Advanced</span>
+              </div>
+              <div class="skill-card-tag">ES6+ · DOM · API</div>
+            </div>
+          </div>
+
+          <div class="skill-card reveal reveal-delay-1" data-skill="react">
+            <div class="skill-card-glow"></div>
+            <div class="skill-card-inner">
+              <div class="skill-card-icon">
+                <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><circle cx="16" cy="16" r="3" fill="#61DAFB"/><path d="M16 9c-4.4 0-8.3.8-11.1 2.2C2.3 12.5 1 14.2 1 16c0 1.8 1.3 3.5 3.9 4.8C7.7 22.2 11.6 23 16 23s8.3-.8 11.1-2.2c2.6-1.3 3.9-3 3.9-4.8 0-1.8-1.3-3.5-3.9-4.8C24.3 9.8 20.4 9 16 9z" stroke="#61DAFB" stroke-width="1.5" fill="none"/><path d="M10.8 12.5C8.6 16.3 7.5 20 7.5 23c0 1.5.2 2.8.7 3.8.5 1 1.2 1.6 2.1 1.9 1.8.6 4.2-.4 6.7-2.7 2.5-2.3 4.8-5.9 6.2-9.5" stroke="#61DAFB" stroke-width="1.5" fill="none"/><path d="M21.2 12.5C23.4 16.3 24.5 20 24.5 23c0 1.5-.2 2.8-.7 3.8-.5 1-1.2 1.6-2.1 1.9-1.8.6-4.2-.4-6.7-2.7-2.5-2.3-4.8-5.9-6.2-9.5" stroke="#61DAFB" stroke-width="1.5" fill="none"/></svg>
+              </div>
+              <div class="skill-card-name">React</div>
+              <div class="skill-card-level">
+                <div class="skill-bar"><div class="skill-bar-fill" style="--w:85%"></div></div>
+                <span>Advanced</span>
+              </div>
+              <div class="skill-card-tag">Hooks · Redux · UI</div>
+            </div>
+          </div>
+
+          <div class="skill-card reveal reveal-delay-2" data-skill="node">
+            <div class="skill-card-glow"></div>
+            <div class="skill-card-inner">
+              <div class="skill-card-icon">
+                <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path d="M16 2L2 10v12l14 8 14-8V10L16 2z" fill="none" stroke="#539E43" stroke-width="1.5"/><path d="M16 5l11 6.3V22L16 28.3 5 22V11.3L16 5z" fill="#539E43" fill-opacity="0.15"/><text x="9" y="19" font-size="8" font-weight="bold" fill="#539E43">N</text></svg>
+              </div>
+              <div class="skill-card-name">Node.js</div>
+              <div class="skill-card-level">
+                <div class="skill-bar"><div class="skill-bar-fill" style="--w:82%"></div></div>
+                <span>Proficient</span>
+              </div>
+              <div class="skill-card-tag">Express · REST · API</div>
+            </div>
+          </div>
+
+          <div class="skill-card reveal reveal-delay-3" data-skill="mongo">
+            <div class="skill-card-glow"></div>
+            <div class="skill-card-inner">
+              <div class="skill-card-icon">
+                <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path d="M16 3c-2.4 4-8 7.5-8 14 0 5 4 9 8 10V3z" fill="#4DB33D"/><path d="M16 3c2.4 4 8 7.5 8 14 0 5-4 9-8 10V3z" fill="#3FA037"/><path d="M16 27l-.5 2-.5-2s1 0 1 0z" fill="#4DB33D"/></svg>
+              </div>
+              <div class="skill-card-name">MongoDB</div>
+              <div class="skill-card-level">
+                <div class="skill-bar"><div class="skill-bar-fill" style="--w:80%"></div></div>
+                <span>Proficient</span>
+              </div>
+              <div class="skill-card-tag">NoSQL · Atlas · ODM</div>
+            </div>
+          </div>
+
+          <div class="skill-card reveal reveal-delay-4" data-skill="firebase">
+            <div class="skill-card-glow"></div>
+            <div class="skill-card-inner">
+              <div class="skill-card-icon">
+                <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path d="M6 25l6.5-13.5L10 6l-4 19z" fill="#FFA000"/><path d="M16.5 12l-4-6L6 25l10.5-13z" fill="#F57F17"/><path d="M20 6l-3.5 6L6 25l20-3L20 6z" fill="#FFCA28"/><path d="M26 22l-6-16-3.5 12 9.5 4z" fill="#FFA000"/></svg>
+              </div>
+              <div class="skill-card-name">Firebase</div>
+              <div class="skill-card-level">
+                <div class="skill-bar"><div class="skill-bar-fill" style="--w:78%"></div></div>
+                <span>Proficient</span>
+              </div>
+              <div class="skill-card-tag">Auth · Firestore · RT</div>
+            </div>
+          </div>
+
+          <div class="skill-card reveal reveal-delay-1" data-skill="iot">
+            <div class="skill-card-glow"></div>
+            <div class="skill-card-inner">
+              <div class="skill-card-icon">
+                <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="16" cy="16" r="4" fill="#14b8a6" fill-opacity="0.9"/>
+                  <circle cx="16" cy="16" r="8" stroke="#14b8a6" stroke-width="1.2" stroke-dasharray="3 2"/>
+                  <circle cx="16" cy="16" r="13" stroke="#14b8a6" stroke-width="0.8" stroke-dasharray="2 3" opacity="0.5"/>
+                  <circle cx="6" cy="16" r="2" fill="#14b8a6"/>
+                  <circle cx="26" cy="16" r="2" fill="#14b8a6"/>
+                  <circle cx="16" cy="6"  r="2" fill="#14b8a6"/>
+                  <circle cx="16" cy="26" r="2" fill="#14b8a6"/>
+                </svg>
+              </div>
+              <div class="skill-card-name">IoT</div>
+              <div class="skill-card-level">
+                <div class="skill-bar"><div class="skill-bar-fill" style="--w:72%"></div></div>
+                <span>Intermediate</span>
+              </div>
+              <div class="skill-card-tag">Arduino · Sensors · MQTT</div>
+            </div>
+          </div>
+
+          <div class="skill-card reveal reveal-delay-2" data-skill="sql">
+            <div class="skill-card-glow"></div>
+            <div class="skill-card-inner">
+              <div class="skill-card-icon">
+                <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <ellipse cx="16" cy="10" rx="10" ry="4" stroke="#f59e0b" stroke-width="1.5"/>
+                  <path d="M6 10v6c0 2.2 4.5 4 10 4s10-1.8 10-4v-6" stroke="#f59e0b" stroke-width="1.5"/>
+                  <path d="M6 16v6c0 2.2 4.5 4 10 4s10-1.8 10-4v-6" stroke="#f59e0b" stroke-width="1.5"/>
+                </svg>
+              </div>
+              <div class="skill-card-name">SQL</div>
+              <div class="skill-card-level">
+                <div class="skill-bar"><div class="skill-bar-fill" style="--w:76%"></div></div>
+                <span>Proficient</span>
+              </div>
+              <div class="skill-card-tag">MySQL · PostgreSQL · ORM</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════ PROJECTS ═══════════════════════════════ -->
+    <section class="projects section" id="projects">
+      <div class="container">
+        <div class="section-label reveal">What I've Built</div>
+        <div class="projects-header">
+          <h2 class="section-title reveal">Featured<br /><em>Projects</em></h2>
+          <a href="https://github.com/Anandsenrj" target="_blank" class="view-all-btn" id="view-all-github">
+            View all on GitHub
+            <svg viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </a>
+        </div>
+        <div class="projects-grid">
+
+          <a href="https://github.com/Anandsenrj/smartenergy-ai" target="_blank" rel="noopener" class="project-card project-featured reveal" id="project-smartenergy">
+            <div class="project-card-accent" style="--accent-color:#6c63ff"></div>
+            <div class="project-card-top">
+              <div class="project-icon" style="background:rgba(108,99,255,0.15);border-color:rgba(108,99,255,0.3)">⚡</div>
+              <div class="project-external">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+            </div>
+            <div class="project-name">SmartEnergy AI</div>
+            <div class="project-desc">AI-powered smart energy management platform with real-time monitoring, predictive analytics, and demand forecasting using IBM Granite Timeseries TTM models.</div>
+            <div class="project-tech-tags">
+              <span class="tech-tag">JavaScript</span>
+              <span class="tech-tag">AI/ML</span>
+              <span class="tech-tag">Timeseries</span>
+              <span class="tech-tag">IoT</span>
+            </div>
+          </a>
+
+          <a href="https://github.com/Anandsenrj" target="_blank" rel="noopener" class="project-card reveal reveal-delay-1" id="project-healthcare">
+            <div class="project-card-accent" style="--accent-color:#14b8a6"></div>
+            <div class="project-card-top">
+              <div class="project-icon" style="background:rgba(20,184,166,0.15);border-color:rgba(20,184,166,0.3)">🏥</div>
+              <div class="project-external">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+            </div>
+            <div class="project-name">HealthCare IoT Monitoring</div>
+            <div class="project-desc">Real-time patient health monitoring system using IoT sensors, transmitting vitals via MQTT to a live dashboard with alert thresholds and analytics.</div>
+            <div class="project-tech-tags">
+              <span class="tech-tag">IoT</span>
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">MQTT</span>
+              <span class="tech-tag">React</span>
+            </div>
+          </a>
+
+          <a href="https://github.com/Anandsenrj" target="_blank" rel="noopener" class="project-card reveal reveal-delay-2" id="project-disease">
+            <div class="project-card-accent" style="--accent-color:#ec4899"></div>
+            <div class="project-card-top">
+              <div class="project-icon" style="background:rgba(236,72,153,0.15);border-color:rgba(236,72,153,0.3)">🔬</div>
+              <div class="project-external">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+            </div>
+            <div class="project-name">Disease Finder AI</div>
+            <div class="project-desc">ML-powered symptom-to-disease predictor trained on medical datasets. Users input symptoms and receive probable diagnoses with confidence scores.</div>
+            <div class="project-tech-tags">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">ML</span>
+              <span class="tech-tag">Flask</span>
+              <span class="tech-tag">Scikit-learn</span>
+            </div>
+          </a>
+
+          <a href="https://github.com/Anandsenrj/Freelancing-Application-MERN" target="_blank" rel="noopener" class="project-card reveal reveal-delay-1" id="project-freelancing">
+            <div class="project-card-accent" style="--accent-color:#f59e0b"></div>
+            <div class="project-card-top">
+              <div class="project-icon" style="background:rgba(245,158,11,0.15);border-color:rgba(245,158,11,0.3)">💼</div>
+              <div class="project-external">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+            </div>
+            <div class="project-name">Freelancing App (MERN)</div>
+            <div class="project-desc">Full-stack freelancing marketplace with authentication, job posting, bidding system, and real-time chat. Built end-to-end using the MERN stack.</div>
+            <div class="project-tech-tags">
+              <span class="tech-tag">MongoDB</span>
+              <span class="tech-tag">Express</span>
+              <span class="tech-tag">React</span>
+              <span class="tech-tag">Node.js</span>
+            </div>
+          </a>
+
+          <a href="https://github.com/Anandsenrj" target="_blank" rel="noopener" class="project-card reveal reveal-delay-2" id="project-disha">
+            <div class="project-card-accent" style="--accent-color:#06b6d4"></div>
+            <div class="project-card-top">
+              <div class="project-icon" style="background:rgba(6,182,212,0.15);border-color:rgba(6,182,212,0.3)">🌐</div>
+              <div class="project-external">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+            </div>
+            <div class="project-name">Disha Club Website</div>
+            <div class="project-desc">Official website for Disha Club featuring events, team profiles, announcements, and registration system. Fully responsive with admin panel.</div>
+            <div class="project-tech-tags">
+              <span class="tech-tag">React</span>
+              <span class="tech-tag">Node.js</span>
+              <span class="tech-tag">Firebase</span>
+              <span class="tech-tag">CSS</span>
+            </div>
+          </a>
+
+          <a href="https://github.com/Anandsenrj" target="_blank" rel="noopener" class="project-card reveal reveal-delay-3" id="project-attendance">
+            <div class="project-card-accent" style="--accent-color:#10b981"></div>
+            <div class="project-card-top">
+              <div class="project-icon" style="background:rgba(16,185,129,0.15);border-color:rgba(16,185,129,0.3)">📊</div>
+              <div class="project-external">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+            </div>
+            <div class="project-name">Attendance Calculator</div>
+            <div class="project-desc">Smart attendance tracker that calculates minimum required attendance, predicts future shortfalls, and provides actionable suggestions for students.</div>
+            <div class="project-tech-tags">
+              <span class="tech-tag">JavaScript</span>
+              <span class="tech-tag">HTML/CSS</span>
+              <span class="tech-tag">Logic</span>
+            </div>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════ EXPERIENCE ═══════════════════════════════ -->
+    <section class="experience section" id="experience">
+      <div class="container">
+        <div class="section-label reveal">My Journey</div>
+        <h2 class="section-title reveal">Experience &amp;<br /><em>Achievements</em></h2>
+
+        <div class="exp-grid">
+
+          <!-- Hackathons -->
+          <div class="exp-category reveal reveal-delay-1">
+            <div class="exp-cat-header">
+              <div class="exp-cat-icon" style="--cat-color:#6c63ff">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 10V3L4 14h7v7l9-11h-7z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <div>
+                <div class="exp-cat-title">Hackathons</div>
+                <div class="exp-cat-sub">Competitive building</div>
+              </div>
+            </div>
+            <div class="exp-items">
+              <div class="exp-item">
+                <div class="exp-item-dot" style="--dot-color:#6c63ff"></div>
+                <div class="exp-item-content">
+                  <div class="exp-item-title">Smart India Hackathon (SIH)</div>
+                  <div class="exp-item-desc">Participated in national-level government problem statement track, building AI solutions.</div>
+                  <div class="exp-item-badge">Participant</div>
+                </div>
+              </div>
+              <div class="exp-item">
+                <div class="exp-item-dot" style="--dot-color:#6c63ff"></div>
+                <div class="exp-item-content">
+                  <div class="exp-item-title">Internal Hackathons</div>
+                  <div class="exp-item-desc">Led teams in college-level hackathons, building full-stack projects under 24-hour constraints.</div>
+                  <div class="exp-item-badge">Team Lead</div>
+                </div>
+              </div>
+              <div class="exp-item">
+                <div class="exp-item-dot" style="--dot-color:#6c63ff"></div>
+                <div class="exp-item-content">
+                  <div class="exp-item-title">Online Coding Contests</div>
+                  <div class="exp-item-desc">Regular participant in LeetCode contests and CodeChef rounds — solving DSA challenges in C++.</div>
+                  <div class="exp-item-badge">Active</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Internships -->
+          <div class="exp-category reveal reveal-delay-2">
+            <div class="exp-cat-header">
+              <div class="exp-cat-icon" style="--cat-color:#14b8a6">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <div>
+                <div class="exp-cat-title">Internships</div>
+                <div class="exp-cat-sub">Real-world experience</div>
+              </div>
+            </div>
+            <div class="exp-items">
+              <div class="exp-item">
+                <div class="exp-item-dot" style="--dot-color:#14b8a6"></div>
+                <div class="exp-item-content">
+                  <div class="exp-item-title">Web Development Internship</div>
+                  <div class="exp-item-desc">Worked on React-based frontend applications, implementing responsive UIs and API integrations.</div>
+                  <div class="exp-item-badge">Frontend Dev</div>
+                </div>
+              </div>
+              <div class="exp-item">
+                <div class="exp-item-dot" style="--dot-color:#14b8a6"></div>
+                <div class="exp-item-content">
+                  <div class="exp-item-title">AI/ML Research Project</div>
+                  <div class="exp-item-desc">Contributed to ML model development for energy demand forecasting using Granite TTM models.</div>
+                  <div class="exp-item-badge">ML Engineer</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Certifications -->
+          <div class="exp-category reveal reveal-delay-1">
+            <div class="exp-cat-header">
+              <div class="exp-cat-icon" style="--cat-color:#f59e0b">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <div>
+                <div class="exp-cat-title">Certifications</div>
+                <div class="exp-cat-sub">Validated skills</div>
+              </div>
+            </div>
+            <div class="exp-items">
+              <div class="exp-item">
+                <div class="exp-item-dot" style="--dot-color:#f59e0b"></div>
+                <div class="exp-item-content">
+                  <div class="exp-item-title">Python for Data Science</div>
+                  <div class="exp-item-desc">Completed comprehensive course covering NumPy, Pandas, Matplotlib, and Machine Learning fundamentals.</div>
+                  <div class="exp-item-badge">Coursera / IBM</div>
+                </div>
+              </div>
+              <div class="exp-item">
+                <div class="exp-item-dot" style="--dot-color:#f59e0b"></div>
+                <div class="exp-item-content">
+                  <div class="exp-item-title">Full-Stack Web Development</div>
+                  <div class="exp-item-desc">Certified in MERN stack development covering React, Node.js, Express, and MongoDB.</div>
+                  <div class="exp-item-badge">Udemy</div>
+                </div>
+              </div>
+              <div class="exp-item">
+                <div class="exp-item-dot" style="--dot-color:#f59e0b"></div>
+                <div class="exp-item-content">
+                  <div class="exp-item-title">IoT &amp; Embedded Systems</div>
+                  <div class="exp-item-desc">Hands-on certification in IoT protocols, sensor integration, and real-time data pipelines.</div>
+                  <div class="exp-item-badge">NPTEL</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Open Source -->
+          <div class="exp-category reveal reveal-delay-2">
+            <div class="exp-cat-header">
+              <div class="exp-cat-icon" style="--cat-color:#10b981">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <div>
+                <div class="exp-cat-title">Open Source</div>
+                <div class="exp-cat-sub">Community contributions</div>
+              </div>
+            </div>
+            <div class="exp-items">
+              <div class="exp-item">
+                <div class="exp-item-dot" style="--dot-color:#10b981"></div>
+                <div class="exp-item-content">
+                  <div class="exp-item-title">GitHub Repositories</div>
+                  <div class="exp-item-desc">Published 10+ open-source repos covering AI, web development, and competitive programming.</div>
+                  <div class="exp-item-badge">10+ Repos</div>
+                </div>
+              </div>
+              <div class="exp-item">
+                <div class="exp-item-dot" style="--dot-color:#10b981"></div>
+                <div class="exp-item-content">
+                  <div class="exp-item-title">LeetCode Practice</div>
+                  <div class="exp-item-desc">Solved 100+ problems on LeetCode with C++ implementations — arrays, trees, DP, graphs.</div>
+                  <div class="exp-item-badge">100+ Solved</div>
+                </div>
+              </div>
+              <div class="exp-item">
+                <div class="exp-item-dot" style="--dot-color:#10b981"></div>
+                <div class="exp-item-content">
+                  <div class="exp-item-title">Community Projects</div>
+                  <div class="exp-item-desc">Built tools and apps used by college peers — attendance calculator, club websites, etc.</div>
+                  <div class="exp-item-badge">Active</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════ CONTACT ═══════════════════════════════ -->
+    <section class="contact section" id="contact">
+      <div class="container">
+        <div class="contact-inner">
+          <div class="contact-glow"></div>
+          <div class="section-label">Get In Touch</div>
+          <h2 class="section-title contact-title">
+            Let's build something<br /><em>great together.</em>
+          </h2>
+          <p class="contact-sub">
+            Whether you have a project in mind, an opportunity, or just want to say hello — I'd love to hear from you.
+          </p>
+          <div class="contact-links" id="contact-links">
+            <a href="mailto:anandsenrj@gmail.com" class="contact-card" id="email-card">
+              <div class="contact-card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" stroke-linecap="round"/></svg>
+              </div>
+              <div class="contact-card-content">
+                <div class="contact-card-label">Email</div>
+                <div class="contact-card-value">anandsenrj@gmail.com</div>
+              </div>
+              <svg class="contact-arrow" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </a>
+            <a href="https://github.com/Anandsenrj" target="_blank" class="contact-card" id="github-card">
+              <div class="contact-card-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+              </div>
+              <div class="contact-card-content">
+                <div class="contact-card-label">GitHub</div>
+                <div class="contact-card-value">github.com/Anandsenrj</div>
+              </div>
+              <svg class="contact-arrow" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </a>
+            <a href="https://linkedin.com/in/Anandsenrj" target="_blank" class="contact-card" id="linkedin-card">
+              <div class="contact-card-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              </div>
+              <div class="contact-card-content">
+                <div class="contact-card-label">LinkedIn</div>
+                <div class="contact-card-value">in/Anandsenrj</div>
+              </div>
+              <svg class="contact-arrow" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </a>
+            <a href="https://instagram.com/patientstranze" target="_blank" class="contact-card" id="instagram-card">
+              <div class="contact-card-icon" style="background:linear-gradient(135deg,rgba(253,88,73,0.15),rgba(188,42,141,0.15));border-color:rgba(188,42,141,0.25)">
+                <svg viewBox="0 0 24 24" fill="url(#igGrad)" style="width:22px;height:22px">
+                  <defs><linearGradient id="igGrad" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" stop-color="#fd5949"/><stop offset="50%" stop-color="#bc2a8d"/><stop offset="100%" stop-color="#fccc63"/></linearGradient></defs>
+                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+                </svg>
+              </div>
+              <div class="contact-card-content">
+                <div class="contact-card-label">Instagram</div>
+                <div class="contact-card-value">@patientstranze</div>
+              </div>
+              <svg class="contact-arrow" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-logo">
+          <span class="logo-text">AS</span>
+          <span class="logo-dot"></span>
+        </div>
+        <p class="footer-text">Crafted with ❤️ by <strong>Anand Sen</strong> · 2025</p>
+        <div class="footer-links">
+          <a href="https://github.com/Anandsenrj"       target="_blank">GitHub</a>
+          <a href="https://linkedin.com/in/Anandsenrj"  target="_blank">LinkedIn</a>
+          <a href="https://instagram.com/patientstranze" target="_blank">Instagram</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
